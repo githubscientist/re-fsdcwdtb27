@@ -1,21 +1,18 @@
 import Header from "./components/Header";
-import Paragraph from "./components/Paragraph";
 
-// first component
-// root component
 function App() {
-
-    let now = new Date();
-    let time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
-
     // App: Parent Component
-    // Header: Child Component for App
-    // Paragraph: Child Component for App
+    // Header: Child Component
+
+    let name1 = 'Krish';
+    let name2 = 'Sathish';
     return (
         <>
-            <Header />
-            <Paragraph
-                time={time}
+            <Header
+                name={name1}
+            />
+            <Header
+                name={name2}
             />
         </>
     )
