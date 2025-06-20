@@ -5,13 +5,18 @@ import Paragraph from "./components/Paragraph";
 // root component
 function App() {
 
+    let now = new Date();
+    let time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+
     // App: Parent Component
     // Header: Child Component for App
     // Paragraph: Child Component for App
     return (
         <>
             <Header />
-            <Paragraph />
+            <Paragraph
+                time={time}
+            />
         </>
     )
 }
