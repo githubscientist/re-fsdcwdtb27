@@ -1,8 +1,17 @@
+import Header from "./components/Header";
+import Paragraph from "./components/Paragraph";
+
+// first component
+// root component
 function App() {
     return (
         <>
-            <h1>Hello, World!</h1>
-            <p>Welcome all!!</p>
+            <Header />
+            <Paragraph />
+            <Header />
+            <Paragraph />
+            <Header />
+            <Paragraph />
         </>
     )
 }
