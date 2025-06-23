@@ -1,21 +1,23 @@
-import Hello from "./components/Hello";
+import ChildA from "./components/ChildA";
+import ChildB from "./components/ChildB";
 
-// create a component named App
 function App() {
 
-    function dataFromChild(name) {
-        console.log('Function inside the parent component');
-        console.log(name);
+    function dataFromChildren(data) {
+        if (data.dataA) console.log('data from child a:', data.dataA);
+        if (data.dataB) console.log('data from child b:', data.dataB);
     }
 
     return (
-        <>
-            <Hello
-                dataFromChild={dataFromChild}
+        <div>
+            <ChildA
+                dataFromChildren={dataFromChildren}
             />
-        </>
+            <ChildB
+                dataFromChildren={dataFromChildren}
+            />
+        </div>
     )
 }
 
-// export the component App
 export default App;
