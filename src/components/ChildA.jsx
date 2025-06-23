@@ -1,11 +1,9 @@
-function ChildA({ dataFromChildren }) {
-    const dataA = 'ABC';
+import ChildB from "./ChildB";
 
-    dataFromChildren({ dataA });
-
-    return (
-        <div>ChildA</div>
-    )
+function ChildA({ count }) {
+    return <ChildB
+        count={count}
+    />
 }
 
 export default ChildA;
