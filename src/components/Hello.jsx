@@ -1,5 +1,8 @@
-function Hello({ name, profession }) {
-    return <h1>Hello {name}, you're a {profession}</h1>;
+function Hello(props) {
+    const name = 'ABC';
+    props.dataFromChild({ name });
+
+    return <h1>Hello World</h1>;
 }
 
 export default Hello;

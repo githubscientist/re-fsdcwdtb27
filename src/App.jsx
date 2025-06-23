@@ -3,13 +3,15 @@ import Hello from "./components/Hello";
 // create a component named App
 function App() {
 
-    const name = 'ABC';
+    function dataFromChild(name) {
+        console.log('Function inside the parent component');
+        console.log(name);
+    }
 
     return (
         <>
             <Hello
-                name={name}
-                profession={'developer'}
+                dataFromChild={dataFromChild}
             />
         </>
     )
