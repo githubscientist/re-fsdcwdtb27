@@ -32,3 +32,8 @@ JSX:
 
 - JSX means JavaScript + XML.
 - JSX is a syntax extension for JavaScript that allows you to write HTML-like code within JavaScript.
+
+class, constructor, object
+call
+bind
+apply

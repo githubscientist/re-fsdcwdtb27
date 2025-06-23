@@ -1,21 +1,19 @@
-import Header from "./components/Header";
+import Hello from "./components/Hello";
 
+// create a component named App
 function App() {
-    // App: Parent Component
-    // Header: Child Component
 
-    let name1 = 'Krish';
-    let name2 = 'Sathish';
+    const name = 'ABC';
+
     return (
         <>
-            <Header
-                name={name1}
-            />
-            <Header
-                name={name2}
+            <Hello
+                name={name}
+                profession={'developer'}
             />
         </>
     )
 }
 
+// export the component App
 export default App;
