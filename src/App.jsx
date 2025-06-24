@@ -1,15 +1,18 @@
 // rendering -> means the component is inserted into the DOM
+
+import { useState } from "react";
+
 // re-rendering -> means the component is updated in the DOM
 const App = () => {
-    // ordinary variable
-    // updating this variable will not cause the component to re-render
-    // so the UI will not update
-    // this is not reactive
-    let count = 0;
+    const [count, setCount] = useState(0);
 
     const handleIncrease = () => {
-        count = count + 1;
-        console.log('Count:', count);
+        // state is immutable, so we cannot directly modify it
+        // count = count + 1;
+
+        setCount(count + 1);
+        // the current value of count is used to update the state
+        // the state change causes the component to re-render
     }
 
     return (
