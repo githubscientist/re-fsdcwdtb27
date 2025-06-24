@@ -14,13 +14,16 @@
 
 // functional component using arrow function
 // multiple components using functional components
-const Hello = () => {
-    return <h1>Hello, World!</h1>;
-}
+// data passing in functional components
+// const Hello = (props) => {
+//     return <h1>Hello, {props.name}!</h1>;
+// }
 
-const App = () => {
-    return <Hello />;
-}
+// const App = () => {
+//     return <Hello
+//         name='Denis'
+//     />;
+// }
 
 // class component in React
 
@@ -37,11 +40,28 @@ const App = () => {
     Method Overriding -> a way to change the behavior of a method in a subclass to execute it over the method in the parent class.
 */
 
-// import React from "react";
-// class App extends React.Component {
-//     render() {
-//         return <h1>Hello, World!</h1>;
-//     }
-// }
+// multiple components using class components
+// passing data in class components
+import React from "react";
+
+class Hello extends React.Component {
+
+    constructor(props) {
+        // calling the parent class constructor
+        super(props);
+    }
+
+    render() {
+        return <h1>Hello, {this.props.name}!</h1>;
+    }
+}
+
+class App extends React.Component {
+    render() {
+        return <Hello
+            name='Denis'
+        />;
+    }
+}
 
 export default App;
