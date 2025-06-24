@@ -12,9 +12,15 @@
 // functional component using arrow function
 // const App = () => <h1>Hello, World!</h1>;
 
-// const App = () => {
-//     return <h1>Hello, World!</h1>;
-// }
+// functional component using arrow function
+// multiple components using functional components
+const Hello = () => {
+    return <h1>Hello, World!</h1>;
+}
+
+const App = () => {
+    return <Hello />;
+}
 
 // class component in React
 
@@ -31,11 +37,11 @@
     Method Overriding -> a way to change the behavior of a method in a subclass to execute it over the method in the parent class.
 */
 
-import React from "react";
-class App extends React.Component {
-    render() {
-        return <h1>Hello, World!</h1>;
-    }
-}
+// import React from "react";
+// class App extends React.Component {
+//     render() {
+//         return <h1>Hello, World!</h1>;
+//     }
+// }
 
 export default App;
