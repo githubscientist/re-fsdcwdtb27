@@ -1,24 +1,22 @@
-// rendering -> means the component is inserted into the DOM
-
 import { useState } from "react";
-
-// re-rendering -> means the component is updated in the DOM
 const App = () => {
-    const [count, setCount] = useState(0);
 
-    const handleIncrease = () => {
-        // state is immutable, so we cannot directly modify it
-        // count = count + 1;
+    const [likes, setLikes] = useState(0);
 
-        setCount(count + 1);
-        // the current value of count is used to update the state
-        // the state change causes the component to re-render
+    const handleLike = () => {
+        setLikes(likes + 1);
+    }
+
+    const handleDisLike = () => {
+        setLikes(likes - 1);
     }
 
     return (
         <div>
-            <h1>Count: {count}</h1>
-            <button onClick={handleIncrease}>Increment</button>
+            <h2>Likes: {likes}</h2>
+            <button onClick={handleLike}>Like</button>
+            &nbsp;&nbsp;
+            <button onClick={handleDisLike}>DisLike</button>
         </div>
     )
 }
