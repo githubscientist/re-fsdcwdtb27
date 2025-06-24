@@ -1,21 +1,27 @@
 import { useState } from "react";
 const App = () => {
 
-    const [likes, setLikes] = useState(0);
-    const [dislikes, setDislikes] = useState(0);
+    const [reactions, setReactions] = useState({
+        likes: 0,
+        dislikes: 0
+    });
 
     const handleLike = () => {
-        setLikes(likes + 1);
+        setReactions({ likes: reactions.likes + 1, dislikes: reactions.dislikes });
+        console.log('component re-rendered');
     }
 
     const handleDisLike = () => {
-        setDislikes(dislikes + 1);
+        setReactions({ likes: reactions.likes, dislikes: reactions.dislikes + 1 });
+        console.log('component re-rendered');
     }
+
+    console.log('component rendered');
 
     return (
         <div>
-            <h2>Likes: {likes}</h2>
-            <h2>Dislikes: {dislikes}</h2>
+            <h2>Likes: {reactions.likes}</h2>
+            <h2>Dislikes: {reactions.dislikes}</h2>
             <button onClick={handleLike}>Like</button>
             &nbsp;&nbsp;
             <button onClick={handleDisLike}>DisLike</button>
