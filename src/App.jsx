@@ -1,11 +1,18 @@
-import ChildA from "./components/ChildA";
+// functional component in React
+// function App() {
+//     return <h1>Hello, World!</h1>
+// }
 
-function App() {
-    let count = 5;
+// functional component using function expression
+// const App = function () {
+//     return <h1>Hello, World!</h1>
+// }
 
-    return <ChildA
-        count={count}
-    />
+// functional component using arrow function
+// const App = () => <h1>Hello, World!</h1>;
+
+const App = () => {
+    return <h1>Hello, World!</h1>;
 }
 
 export default App;

@@ -63,3 +63,15 @@ Pending Topics:
 [ ] call
 [ ] bind
 [ ] apply
+
+### React Hooks
+
+- We have in React, class components and functional components.
+- Class components: stateful components
+- Functional components: stateless components
+- Class components can have lifecycle methods, while functional components cannot.
+
+- Though functional components are efficient and simple, as they are stateless and does not have lifecycle methods, they are not adopted initially.
+- React Hooks were introduced to allow functional components to have state and lifecycle methods.
+- React Hooks are special functions that allow you to use state and other React features in functional components.
+- React Hooks are used to manage state using the `useState` hook, and to manage side effects using the `useEffect` hook.
