@@ -18,7 +18,7 @@ const App = () => {
     return (
         <div>
             <h1>Count: {count}</h1>
-            <button onClick={handleIncrease}>Increase</button>
+            <button onClick={handleIncrease}>Increment</button>
         </div>
     )
 }
