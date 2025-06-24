@@ -76,3 +76,7 @@ Pending Topics:
 - React Hooks are special functions that allow you to use state and other React features in functional components.
 - React Hooks are used to manage state using the `useState` hook, and to manage side effects using the `useEffect` hook.
 - class components are complex and have a lot of boilerplate code, while functional components are simple and easy to read.
+
+state:
+
+- State is a built-in object that stores data about the component.
