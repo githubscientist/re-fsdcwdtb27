@@ -1,29 +1,34 @@
-/*
-    key prop: it is used to uniquely identify elements in a list.
-*/
-
-import { useEffect, useState } from "react";
-
 const App = () => {
 
-    const [todos, setTodos] = useState([]);
+    // uncontrolled component
+    // using a form to handle registration
+    const handleRegister = (event) => {
+        event.preventDefault();
+        const email = event.target.email.value;
+        const password = event.target.password.value;
 
-    // runs only once
-    useEffect(() => {
-        fetch(`https://685ac3af9f6ef9611157b188.mockapi.io/todos`)
-            .then(response => response.json())
-            .then(data => setTodos(data));
-    }, []);
-
-    console.log(todos);
+        console.log('Registering user!');
+        console.log('Email:', email);
+        console.log('Password:', password);
+    }
 
     return (
-        <div>
-            <h1>Todos</h1>
-            <ul>
-                {todos.map(todo => <li key={todo.id}>{todo.content}</li>)}
-            </ul>
-        </div>
+        <form onSubmit={handleRegister}>
+            <h1>Register</h1>
+            <input
+                type="email"
+                placeholder="Email..."
+                name="email"
+            />
+
+            <input
+                type="password"
+                placeholder="Password..."
+                name="password"
+            />
+
+            <button type="submit">Register</button>
+        </form>
     )
 }
 
