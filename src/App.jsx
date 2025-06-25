@@ -4,9 +4,10 @@ const App = () => {
 
     const [counter, setCounter] = useState(0);
 
+    // this effect runs only once when the component mounts
     useEffect(() => {
         console.log("Counter value:", counter);
-    });
+    }, []);
 
     return (
         <div>
