@@ -1,30 +1,15 @@
 import { useState } from "react";
+
 const App = () => {
 
-    const [reactions, setReactions] = useState({
-        likes: 0,
-        dislikes: 0
-    });
+    const [counter, setCounter] = useState(0);
 
-    const handleLike = () => {
-        setReactions({ likes: reactions.likes + 1, dislikes: reactions.dislikes });
-        console.log('component re-rendered');
-    }
-
-    const handleDisLike = () => {
-        setReactions({ likes: reactions.likes, dislikes: reactions.dislikes + 1 });
-        console.log('component re-rendered');
-    }
-
-    console.log('component rendered');
+    console.log("Counter value:", counter);
 
     return (
         <div>
-            <h2>Likes: {reactions.likes}</h2>
-            <h2>Dislikes: {reactions.dislikes}</h2>
-            <button onClick={handleLike}>Like</button>
-            &nbsp;&nbsp;
-            <button onClick={handleDisLike}>DisLike</button>
+            <h1>Counter: {counter}</h1>
+            <button onClick={() => setCounter(counter + 1)}>Increase</button>
         </div>
     )
 }
