@@ -1,23 +1,20 @@
-import { useRef } from "react";
+import { useState } from "react";
 
 const App = () => {
 
-    const textInputRef = useRef(null);
+    const [state, setState] = useState(0);
+    let count = 0;
 
-    const handleSubmit = () => {
-        // console.log(textInputRef.current.value);
-        textInputRef.current.focus();
+    const handleIncrease = () => {
+        count += 1;
+        console.log("Count:", count);
     }
 
     return (
         <div>
-            <input
-                type="text"
-                placeholder="Type something..."
-                ref={textInputRef}
-            />
-
-            <button onClick={handleSubmit}>Focus</button>
+            <h1>Count: {count}</h1>
+            <button onClick={handleIncrease}>Increase</button>
+            <button onClick={() => setState(state + 1)}>Re-Render</button>
         </div>
     )
 }
