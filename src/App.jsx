@@ -1,20 +1,18 @@
-import { useRef, useState } from "react";
+// State Management using useState Hook in React
+import { useState } from "react";
 
 const App = () => {
 
-    const [state, setState] = useState(0);
-    let count = useRef(0);
+    const [count, setCount] = useState(0);
 
     const handleIncrease = () => {
-        count.current += 1;
-        console.log("Count:", count.current);
+        setCount(count + 1);
     }
 
     return (
         <div>
-            <h1>Count: {count.current}</h1>
+            <h1>Count: {count}</h1>
             <button onClick={handleIncrease}>Increase</button>
-            <button onClick={() => setState(state + 1)}>Re-Render</button>
         </div>
     )
 }

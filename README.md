@@ -106,3 +106,7 @@ useRef():
 
 - `useRef` is a React Hook that allows you to create a mutable reference that persists for the lifetime of the component.
 - It can be used to access DOM elements or to store mutable values that do not cause re-renders when changed.
+
+useReducer():
+
+- `useReducer` is a React Hook that allows you to manage state in a functional component using a reducer function.
