@@ -1,7 +1,23 @@
+import { useRef } from "react";
+
 const App = () => {
+
+    const textInputRef = useRef(null);
+
+    const handleSubmit = () => {
+        // console.log(textInputRef.current.value);
+        textInputRef.current.focus();
+    }
+
     return (
         <div>
-            <h1>Hello, World!!</h1>
+            <input
+                type="text"
+                placeholder="Type something..."
+                ref={textInputRef}
+            />
+
+            <button onClick={handleSubmit}>Focus</button>
         </div>
     )
 }
