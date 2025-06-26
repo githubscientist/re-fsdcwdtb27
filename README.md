@@ -59,7 +59,7 @@ Solution to Props Drilling:
 
 Pending Topics:
 
-[ ] class, constructor, object
+[x] class, constructor, object
 [ ] call
 [ ] bind
 [ ] apply
@@ -80,3 +80,24 @@ Pending Topics:
 state:
 
 - State is a built-in object that stores data about the component.
+
+To Remove Tailwind CSS@3:
+
+- Remove the `tailwindcss` package from your project by running:
+
+```bash
+npm uninstall tailwindcss
+```
+
+- Remove the `tailwind.config.js`, `postcss.config.js`, and index.css files from your project.
+
+```bash
+rm -rf tailwind.config.js postcss.config.js ./src/index.css
+```
+
+- Remove the node_modules folder and reinstall the dependencies:
+
+```bash
+rm -rf node_modules
+npm install
+```
