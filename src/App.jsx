@@ -1,18 +1,33 @@
 // State Management using useState Hook in React
-import { useState } from "react";
+import { useReducer } from "react";
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'INC':
+            return state + 1;
+        case 'DEC':
+            return state - 1;
+    }
+}
 
 const App = () => {
 
-    const [count, setCount] = useState(0);
+    // console.log(useState(0));
+    const [count, dispatch] = useReducer(reducer, 0);
 
     const handleIncrease = () => {
-        setCount(count + 1);
+        dispatch({ type: 'INC' });
+    }
+
+    const handleDecrease = () => {
+        dispatch({ type: 'DEC' })
     }
 
     return (
         <div>
             <h1>Count: {count}</h1>
             <button onClick={handleIncrease}>Increase</button>
+            <button onClick={handleDecrease}>Decrease</button>
         </div>
     )
 }
