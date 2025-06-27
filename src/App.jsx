@@ -1,22 +1,20 @@
 import { useState } from "react";
 import Reactions from "./components/Reactions";
+import Buttons from "./components/Buttons";
 
 const App = () => {
 
     const [likes, setLikes] = useState(0);
-
-    const handleReaction = () => {
-        setLikes(likes + 1);
-    }
-
-    console.log('App component rendered');
 
     return (
         <div>
             <Reactions
                 likes={likes}
             />
-            <button onClick={handleReaction}>Like</button>
+            <Buttons
+                likes={likes}
+                setLikes={setLikes}
+            />
         </div>
     )
 }
