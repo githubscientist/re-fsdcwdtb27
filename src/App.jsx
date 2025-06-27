@@ -14,6 +14,16 @@ const reducer = (state, action) => {
                 ...state,
                 name: action.payload
             };
+        case 'SET_EMAIL':
+            return {
+                ...state,
+                email: action.payload
+            }
+        case 'SET_PASSWORD':
+            return {
+                ...state,
+                password: action.payload
+            }
     }
 }
 
@@ -25,35 +35,44 @@ const App = () => {
         password: ''
     });
 
-    console.log(state);
+    const handleRegister = (e) => {
+        e.preventDefault();
+        console.log('Registering user:', state);
+    }
 
     return (
         <div>
             <h1>Register</h1>
-            <div>
-                <input
-                    type="text"
-                    placeholder="Name..."
-                    value={state.name}
-                    onChange={(e) => dispatch({ type: 'SET_NAME', payload: e.target.value })}
-                />
-            </div>
-            <br />
-            <div>
-                <input
-                    type="email"
-                    placeholder="Email..."
-                />
-            </div>
-            <br />
-            <div>
-                <input
-                    type="password"
-                    placeholder="Password..."
-                />
-            </div>
-            <br />
-            <button type="submit">Submit</button>
+            <form onSubmit={handleRegister}>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Name..."
+                        value={state.name}
+                        onChange={(e) => dispatch({ type: 'SET_NAME', payload: e.target.value })}
+                    />
+                </div>
+                <br />
+                <div>
+                    <input
+                        type="email"
+                        placeholder="Email..."
+                        value={state.email}
+                        onChange={(e) => dispatch({ type: 'SET_EMAIL', payload: e.target.value })}
+                    />
+                </div>
+                <br />
+                <div>
+                    <input
+                        type="password"
+                        placeholder="Password..."
+                        value={state.password}
+                        onChange={(e) => dispatch({ type: 'SET_PASSWORD', payload: e.target.value })}
+                    />
+                </div>
+                <br />
+                <button type="submit">Submit</button>
+            </form>
         </div>
     )
 }
