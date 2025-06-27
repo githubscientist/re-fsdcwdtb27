@@ -1,15 +1,24 @@
-// State Management using useReducer Hook in React
-import { useReducer } from "react";
-import reducer from "./reducers/countReducer";
+/*
+    useRef Hook:
+
+    - useRef is a React Hook that allows you to select a DOM element directly instead of the old way of using document.getElementById or document.querySelector.
+*/
+
+import { useRef } from "react";
 
 const App = () => {
-    const [count, dispatch] = useReducer(reducer, 0);
+
+    const header = useRef(null);
+
+    const handleChange = () => {
+        header.current.textContent = 'Hello, World!';
+        header.current.style.color = 'blue';
+    }
 
     return (
         <div>
-            <h1>Count: {count}</h1>
-            <button onClick={() => dispatch({ type: 'INC', payload: 5 })}>Increase</button>
-            <button onClick={() => dispatch({ type: 'DEC', payload: 5 })}>Decrease</button>
+            <h1 ref={header}>Hello, Welcome!</h1>
+            <button onClick={handleChange}>Change Text</button>
         </div>
     )
 }
