@@ -126,3 +126,7 @@ useCallback:
 - React Router is a library that allows you to create a single-page application with multiple views.
 - It allows you to define routes in your application, and to navigate between different views without reloading the page.
 - Also, it allows the browser to maintain the history of the application, so that the user can navigate back and forth between different views.
+
+#### Children Props:
+
+- Children props are a special type of prop that allows you to pass child elements to a component.
