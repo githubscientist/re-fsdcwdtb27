@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
+import Home from "./pages/Home";
 
 const routes = [
     {
         path: "/",
-        element: <h1>Home Page!</h1>
+        element: <Home />
     },
     {
         path: "/courses",
