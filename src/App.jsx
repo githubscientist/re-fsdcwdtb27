@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 const App = () => {
 
@@ -16,7 +16,7 @@ const App = () => {
         return sum;
     }
 
-    let result = computation();
+    let result = useMemo(computation, []);
 
     return (
         <>
