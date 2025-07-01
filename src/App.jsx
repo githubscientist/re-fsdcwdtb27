@@ -1,24 +1,28 @@
-import Reactions from "./components/Reactions";
-import Buttons from "./components/Buttons";
 import { useState } from "react";
 
 const App = () => {
 
-    const [likes, setLikes] = useState(0);
+    const [state, setState] = useState(0);
 
-    const liftLikes = (newLikes) => {
-        setLikes(newLikes);
+    const computation = () => {
+        console.log("Starting computation...");
+
+        let sum = 0;
+
+        for (let i = 1; i <= 1000000; i++) {
+            sum += i;
+        }
+
+        return sum;
     }
 
+    let result = computation();
+
     return (
-        <div>
-            <Reactions
-                likes={likes}
-            />
-            <Buttons
-                liftLikes={liftLikes}
-            />
-        </div>
+        <>
+            <h3>Result of the computation is: {result}</h3>
+            <button onClick={() => setState(state + 1)}>Change State</button>
+        </>
     )
 }
 

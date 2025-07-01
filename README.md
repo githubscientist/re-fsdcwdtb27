@@ -110,3 +110,11 @@ useRef():
 useReducer():
 
 - `useReducer` is a React Hook that allows you to manage state in a functional component using a reducer function.
+
+useMemo:
+
+- `useMemo` is a React Hook that allows you to memoize a value, preventing unnecessary recalculations on re-renders.
+
+useCallback:
+
+- `useCallback` is a React Hook that allows you to memoize a function, preventing unnecessary re-creations on re-renders.
