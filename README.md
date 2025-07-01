@@ -118,3 +118,11 @@ useMemo:
 useCallback:
 
 - `useCallback` is a React Hook that allows you to memoize a function, preventing unnecessary re-creations on re-renders.
+
+### React Router
+
+- React Applications are single-page applications (SPAs).
+- Which means that the entire application is loaded on a single HTML page, and the content is dynamically updated without reloading the page.
+- React Router is a library that allows you to create a single-page application with multiple views.
+- It allows you to define routes in your application, and to navigate between different views without reloading the page.
+- Also, it allows the browser to maintain the history of the application, so that the user can navigate back and forth between different views.
