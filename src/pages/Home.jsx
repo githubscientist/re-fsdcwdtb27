@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useLoaderData } from "react-router";
 
 const Home = () => {
 
-    const [todos, setTodos] = useState([]);
+    const todos = useLoaderData();
 
     console.log(todos);
 
