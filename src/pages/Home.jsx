@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Home = () => {
@@ -5,9 +6,8 @@ const Home = () => {
     const [todos, setTodos] = useState([]);
 
     useEffect(() => {
-        fetch(`https://685ac3af9f6ef9611157b188.mockapi.io/todos`)
-            .then(response => response.json())
-            .then(data => setTodos(data));
+        axios.get(`https://685ac3af9f6ef9611157b188.mockapi.io/todos`)
+            .then(response => setTodos(response.data));
     }, []);
 
     console.log(todos);
