@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Description from "./pages/Description";
+import Dashboard from "./pages/Dashboard";
 
 const routes = [
     {
@@ -23,7 +24,10 @@ const routes = [
             }
         ]
     },
-
+    {
+        path: "/dashboard",
+        element: <Dashboard />
+    }
 ];
 
 
