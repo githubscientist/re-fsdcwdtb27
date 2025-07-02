@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./pages/Home";
-import todosLoader from "./loaders/unit/todosLoader";
+import postsTodosLoader from "./loaders/combined/postsTodosLoader";
 
 const routes = [
     {
         path: "/",
         element: <Home />,
-        loader: todosLoader,
+        loader: postsTodosLoader,
         hydrateFallbackElement: <div>Loading...</div>,
     },
 ];
