@@ -138,3 +138,7 @@ API Request:
 - Then we have used Fetch API to make API requests.
 - Fetch API is a modern way to make API requests in JavaScript.
 - We have a separate library called Axios to make API requests.
+
+### React Router Loaders
+
+- Loaders are functions that run before a route is rendered.
