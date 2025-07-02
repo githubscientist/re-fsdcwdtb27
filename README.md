@@ -130,3 +130,11 @@ useCallback:
 #### Children Props:
 
 - Children props are a special type of prop that allows you to pass child elements to a component.
+
+
+API Request:
+
+- Initially we have used XHR (XMLHttpRequest) to make API requests.
+- Then we have used Fetch API to make API requests.
+- Fetch API is a modern way to make API requests in JavaScript.
+- We have a separate library called Axios to make API requests.
