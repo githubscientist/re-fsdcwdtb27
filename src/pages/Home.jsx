@@ -2,9 +2,7 @@ import { useLoaderData } from "react-router";
 
 const Home = () => {
 
-    const { todos, posts } = useLoaderData();
-
-    console.log(posts);
+    const todos = useLoaderData();
 
     return (
         <div>
