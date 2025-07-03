@@ -1,46 +1,23 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
-import Home from "./pages/Home";
-import todosLoader from "./loaders/unit/todosLoader";
-import Todo from "./components/Todo";
-import todoLoader from "./loaders/unit/todoLoader";
+import { createContext, useState } from "react";
+import CounterDisplay from "./components/CounterDisplay";
+import Button from "./components/Button";
 
-const routes = [
-    {
-        path: "/",
-        element: <Home />,
-        loader: todosLoader,
-        hydrateFallbackElement: <div>Loading...</div>,
-        children: [
-            {
-                path: "todo/:id",
-                element: <Todo />,
-                loader: todoLoader,
-                hydrateFallbackElement: <div>Loading Todo...</div>,
-            }
-        ]
-    },
-];
+// 1. Create a Context
+export const CounterContext = createContext();
 
-
-// create a router object
-const router = createBrowserRouter(routes, {
-    future: {
-        v7_relativeSplatPath: true,
-        v7_fetcherPersist: true,
-        v7_normalizeFormMethod: true,
-        v7_partialHydration: true,
-        v7_skipActionErrorRevalidation: true,
-    },
-});
-
-
+// 2. Wrap the App component with the Context Provider and set the value prop to an object containing the states or values or functions you want to share
 const App = () => {
-    return <RouterProvider
-        router={router}
-        future={{
-            v7_startTransition: true,
-        }}
-    />
+
+    const [count, setCount] = useState(0);
+
+    return (
+        <CounterContext.Provider value={{ count, setCount }}>
+            <>
+                <CounterDisplay />
+                <Button />
+            </>
+        </CounterContext.Provider>
+    )
 }
 
 export default App;
