@@ -1,6 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useLoaderData, useSearchParams } from "react-router";
+import { useLoaderData } from "react-router";
 
 const Todo = () => {
 
