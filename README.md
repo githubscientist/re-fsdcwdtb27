@@ -63,6 +63,9 @@ Pending Topics:
 [ ] call
 [ ] bind
 [ ] apply
+[ ] Children Props
+[ ] Higher Order Components (HOC)
+[ ] Conditional Rendering
 
 ### React Hooks
 
@@ -130,7 +133,6 @@ useCallback:
 #### Children Props:
 
 - Children props are a special type of prop that allows you to pass child elements to a component.
-
 
 API Request:
 

@@ -9,7 +9,9 @@ const Home = () => {
             <h1>Todos</h1>
             <ul>
                 {todos.map(todo => (
-                    <li key={todo.id}>{todo.content}</li>
+                    <li key={todo.id}>
+                        <a href="/todo">{todo.content}</a>
+                    </li>
                 ))}
             </ul>
         </div>
