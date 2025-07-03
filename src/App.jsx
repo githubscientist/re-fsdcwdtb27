@@ -11,7 +11,7 @@ const routes = [
         hydrateFallbackElement: <div>Loading...</div>,
     },
     {
-        path: "/todo",
+        path: "/todo/:id",
         element: <Todo />,
         hydrateFallbackElement: <div>Loading Todo...</div>,
     }

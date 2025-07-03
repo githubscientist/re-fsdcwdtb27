@@ -144,3 +144,8 @@ API Request:
 ### React Router Loaders
 
 - Loaders are functions that run before a route is rendered.
+
+### Params in React Router
+
+1. URL Params
+2. Search Params or Query Params
