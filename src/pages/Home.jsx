@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const Home = () => {
 
@@ -12,7 +12,7 @@ const Home = () => {
             <ul>
                 {todos.map(todo => (
                     <li key={todo.id}>
-                        <a href={"/todo" + "/" + todo.id}>{todo.content}</a>
+                        <Link to={"/todo" + "/" + todo.id}>{todo.content}</Link>
                     </li>
                 ))}
             </ul>
