@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router";
+import { Link, Outlet, useLoaderData } from "react-router";
 
 const Home = () => {
 
@@ -16,6 +16,9 @@ const Home = () => {
                     </li>
                 ))}
             </ul>
+
+            <Outlet />
+            <p>Click on a todo to view details.</p>
         </div>
     )
 }

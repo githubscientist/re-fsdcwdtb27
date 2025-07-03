@@ -10,13 +10,15 @@ const routes = [
         element: <Home />,
         loader: todosLoader,
         hydrateFallbackElement: <div>Loading...</div>,
+        children: [
+            {
+                path: "todo/:id",
+                element: <Todo />,
+                loader: todoLoader,
+                hydrateFallbackElement: <div>Loading Todo...</div>,
+            }
+        ]
     },
-    {
-        path: "/todo/:id",
-        element: <Todo />,
-        loader: todoLoader,
-        hydrateFallbackElement: <div>Loading Todo...</div>,
-    }
 ];
 
 

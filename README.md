@@ -60,9 +60,9 @@ Solution to Props Drilling:
 Pending Topics:
 
 [x] class, constructor, object
-[ ] call
-[ ] bind
-[ ] apply
+[x] call
+[x] bind
+[x] apply
 [ ] Children Props
 [ ] Higher Order Components (HOC)
 [ ] Conditional Rendering
@@ -158,3 +158,11 @@ API Request:
 URL Params Vs Search Params:
 
 - URL params are used to pass data that is essential for the route, while search params are used to pass additional data that is not essential for the route.
+
+#### Context API
+
+- Context API is a way to share data between components without having to pass props down through every level of the component tree.
+- It allows you to:
+  - create a context object
+  - provide a value to the context
+  - consume the context value in any component that needs it.

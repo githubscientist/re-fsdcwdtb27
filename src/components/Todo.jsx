@@ -6,7 +6,7 @@ const Todo = () => {
 
     return (
         <div>
-            <h1>Todo</h1>
+            <h1>Todo Details</h1>
             <div>
                 <h2>{todo.content}</h2>
                 <p>Status: {todo.completed ? "Completed" : "Pending"}</p>
