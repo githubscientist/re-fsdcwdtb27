@@ -12,7 +12,7 @@ const Home = () => {
             <ul>
                 {todos.map(todo => (
                     <li key={todo.id}>
-                        <a href={"/todo" + "/" + todo.id}>{todo.content}</a>
+                        <a href={"/todo" + "?id=" + todo.id}>{todo.content}</a>
                     </li>
                 ))}
             </ul>
