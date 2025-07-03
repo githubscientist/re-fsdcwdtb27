@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./pages/Home";
 import todosLoader from "./loaders/unit/todosLoader";
 import Todo from "./components/Todo";
+import todoLoader from "./loaders/unit/todoLoader";
 
 const routes = [
     {
@@ -13,6 +14,7 @@ const routes = [
     {
         path: "/todo",
         element: <Todo />,
+        loader: todoLoader,
         hydrateFallbackElement: <div>Loading Todo...</div>,
     }
 ];
