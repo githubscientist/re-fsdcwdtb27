@@ -148,4 +148,13 @@ API Request:
 ### Params in React Router
 
 1. URL Params
+
+- URL params are dynamic segments in the URL that can be used to pass data to a route.
+
 2. Search Params or Query Params
+
+- Search params are key-value pairs that are appended to the URL after a question mark (?), allowing you to pass additional data to a route.
+
+URL Params Vs Search Params:
+
+- URL params are used to pass data that is essential for the route, while search params are used to pass additional data that is not essential for the route.

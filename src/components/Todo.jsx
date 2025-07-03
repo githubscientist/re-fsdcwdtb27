@@ -7,6 +7,9 @@ const Todo = () => {
     const [params] = useSearchParams();
     const [todo, setTodo] = useState({});
     const id = params.get("id");
+    const content = params.get("name");
+
+    console.log(content);
 
     useEffect(() => {
         axios.get(`https://685ac3af9f6ef9611157b188.mockapi.io/todos/${id}`)
