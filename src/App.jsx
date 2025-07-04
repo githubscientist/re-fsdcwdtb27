@@ -1,31 +1,47 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import TodoItem from "./components/TodoItem";
+
+// Higher-Order Component (HOC) to add a loading spinner
+const hocWithLoader = (WrappedComponent) => {
+    return function Loader({ isLoading }) {
+        return (
+            <div>
+                {isLoading && <h2>Loading...</h2>}
+                <WrappedComponent />
+            </div>
+        );
+    }
+}
+
+const User = () => {
+    return (
+        <div>
+            <h1>Hello, Guest!</h1>
+        </div>
+    )
+}
+
+// Enhanced Component with the HOC
+const WithLoader = hocWithLoader(User);
 
 const App = () => {
 
-    const [todos, setTodos] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(`https://685ac3af9f6ef9611157b188.mockapi.io/todos`)
-            .then(response => setTodos(response.data));
-    }, []);
+        // Simulate a data fetching delay
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
 
-    console.log(todos);
+        // Cleanup the timer on component unmount
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <div>
-            <h1>Todos</h1>
-            <ul>
-                {
-                    todos.map(todo => (
-                        <TodoItem
-                            todo={todo}
-                            key={todo.id}
-                        />
-                    ))
-                }
-            </ul>
+            <WithLoader
+                isLoading={isLoading}
+            />
         </div>
     )
 }
