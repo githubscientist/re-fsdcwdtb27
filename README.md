@@ -63,7 +63,7 @@ Pending Topics:
 [x] call
 [x] bind
 [x] apply
-[ ] Children Props
+[x] Children Props
 [ ] Higher Order Components (HOC)
 [ ] Conditional Rendering
 
@@ -166,3 +166,13 @@ URL Params Vs Search Params:
   - create a context object
   - provide a value to the context
   - consume the context value in any component that needs it.
+
+### Children Props
+
+- Children props are a special type of prop that allows you to pass child elements to a component.
+
+[x] Higher Order Components (HOC)
+[ ] Conditional Rendering
+[ ] Context API with React-Router
+[ ] Custom Hooks
+[ ] react-toastify
