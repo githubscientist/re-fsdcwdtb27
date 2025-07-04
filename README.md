@@ -171,8 +171,8 @@ URL Params Vs Search Params:
 
 - Children props are a special type of prop that allows you to pass child elements to a component.
 
-[x] Higher Order Components (HOC)
 [ ] Conditional Rendering
+[ ] Higher Order Components (HOC)
 [ ] Context API with React-Router
 [ ] Custom Hooks
 [ ] react-toastify
