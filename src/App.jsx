@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import todosLoader from "./loaders/unit/todosLoader";
 import Todo from "./components/Todo";
 import todoLoader from "./loaders/unit/todoLoader";
+import { useState } from "react";
 
 const routes = [
     {
@@ -10,15 +11,13 @@ const routes = [
         element: <Home />,
         loader: todosLoader,
         hydrateFallbackElement: <div>Loading...</div>,
-        children: [
-            {
-                path: "/todo/:id",
-                element: <Todo />,
-                loader: todoLoader,
-                hydrateFallbackElement: <div>Loading Todo...</div>,
-            }
-        ]
     },
+    {
+        path: "/todo/:id",
+        element: <Todo />,
+        loader: todoLoader,
+        hydrateFallbackElement: <div>Loading Todo...</div>,
+    }
 ];
 
 
@@ -35,6 +34,9 @@ const router = createBrowserRouter(routes, {
 
 
 const App = () => {
+
+    const [user, setUser] = useState({});
+
     return <RouterProvider
         router={router}
         future={{

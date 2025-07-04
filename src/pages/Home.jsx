@@ -4,12 +4,11 @@ const Home = () => {
 
     const todos = useLoaderData();
 
-    console.log(todos);
-
     return (
         <div>
+            <p>{'guest'} has logged in! <button>logout</button></p>
             <h1>Todos</h1>
-            <p>Click on a todo to view details.</p>
+            <p>Click on a todo to view detailed info of it!</p>
             <ul>
                 {todos.map(todo => (
                     <li key={todo.id}>
@@ -17,8 +16,6 @@ const Home = () => {
                     </li>
                 ))}
             </ul>
-
-            <Outlet />
         </div>
     )
 }
