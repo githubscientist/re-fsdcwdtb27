@@ -1,49 +1,46 @@
-import { useEffect, useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Home from "./pages/Home";
+import todosLoader from "./loaders/unit/todosLoader";
+import Todo from "./components/Todo";
+import todoLoader from "./loaders/unit/todoLoader";
 
-// Higher-Order Component (HOC) to add a loading spinner
-const hocWithLoader = (WrappedComponent) => {
-    return function Loader({ isLoading }) {
-        return (
-            <div>
-                {isLoading && <h2>Loading...</h2>}
-                <WrappedComponent />
-            </div>
-        );
-    }
-}
+const routes = [
+    {
+        path: "/",
+        element: <Home />,
+        loader: todosLoader,
+        hydrateFallbackElement: <div>Loading...</div>,
+        children: [
+            {
+                path: "/todo/:id",
+                element: <Todo />,
+                loader: todoLoader,
+                hydrateFallbackElement: <div>Loading Todo...</div>,
+            }
+        ]
+    },
+];
 
-const User = () => {
-    return (
-        <div>
-            <h1>Hello, Guest!</h1>
-        </div>
-    )
-}
 
-// Enhanced Component with the HOC
-const WithLoader = hocWithLoader(User);
+// create a router object
+const router = createBrowserRouter(routes, {
+    future: {
+        v7_relativeSplatPath: true,
+        v7_fetcherPersist: true,
+        v7_normalizeFormMethod: true,
+        v7_partialHydration: true,
+        v7_skipActionErrorRevalidation: true,
+    },
+});
+
 
 const App = () => {
-
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        // Simulate a data fetching delay
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
-
-        // Cleanup the timer on component unmount
-        return () => clearTimeout(timer);
-    }, []);
-
-    return (
-        <div>
-            <WithLoader
-                isLoading={isLoading}
-            />
-        </div>
-    )
+    return <RouterProvider
+        router={router}
+        future={{
+            v7_startTransition: true,
+        }}
+    />
 }
 
 export default App;

@@ -9,6 +9,7 @@ const Home = () => {
     return (
         <div>
             <h1>Todos</h1>
+            <p>Click on a todo to view details.</p>
             <ul>
                 {todos.map(todo => (
                     <li key={todo.id}>
@@ -18,7 +19,6 @@ const Home = () => {
             </ul>
 
             <Outlet />
-            <p>Click on a todo to view details.</p>
         </div>
     )
 }

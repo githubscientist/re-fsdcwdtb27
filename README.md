@@ -173,6 +173,6 @@ URL Params Vs Search Params:
 
 [x] Conditional Rendering
 [x] Higher Order Components (HOC)
-[ ] Context API with React-Router
-[ ] Custom Hooks
+[x] Context API with React-Router
+[x] Custom Hooks
 [ ] react-toastify
