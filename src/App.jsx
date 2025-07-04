@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import todosLoader from "./loaders/unit/todosLoader";
 import Todo from "./components/Todo";
 import todoLoader from "./loaders/unit/todoLoader";
-import { createContext, useState } from "react";
+import UserContext from "./contexts/UserContext";
 
 const routes = [
     {
@@ -32,26 +32,17 @@ const router = createBrowserRouter(routes, {
     },
 });
 
-// 1. create a context to provide user data
-export const UserContext = createContext();
-
-
 const App = () => {
 
-    const [user, setUser] = useState({
-        name: 'Alice',
-        email: 'alice@guvi.in'
-    });
-
     return (
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext>
             <RouterProvider
                 router={router}
                 future={{
                     v7_startTransition: true,
                 }}
             />
-        </UserContext.Provider>
+        </UserContext>
     )
 }
 
