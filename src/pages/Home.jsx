@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import { Link, useLoaderData } from "react-router";
-import { AuthContext } from "../contexts/UserContext";
+import { useAuth } from "../contexts/UserContext";
 
 const Home = () => {
 
+    const { user, setUser } = useAuth();
     const todos = useLoaderData();
-    const { user, setUser } = useContext(AuthContext);
 
     return (
         <div>

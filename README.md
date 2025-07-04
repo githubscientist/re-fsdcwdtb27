@@ -176,3 +176,8 @@ URL Params Vs Search Params:
 [x] Context API with React-Router
 [x] Custom Hooks
 [ ] react-toastify
+
+### Custom Hooks
+
+- Custom hooks are functions that allow you to reuse stateful logic across multiple components.
+- They are a way to extract and share logic that is not specific to a single component.
