@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useReducer } from "react";
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'INCR':
+            return state + 1;
+        default:
+            return state;
+    }
+}
 
 const Home = () => {
 
-    const [count, setCount] = useState(0);
+    const [count, dispatch] = useReducer(reducer, 0);
 
     return (
         <>
             <h1>Counter: {count}</h1>
-            <button onClick={() => setCount(count + 1)}>Increase</button>
+            <button onClick={() => dispatch({ type: 'INCR' })}>Increase</button>
         </>
     )
 }
