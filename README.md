@@ -64,8 +64,8 @@ Pending Topics:
 [x] bind
 [x] apply
 [x] Children Props
-[ ] Higher Order Components (HOC)
-[ ] Conditional Rendering
+[x] Higher Order Components (HOC)
+[x] Conditional Rendering
 
 ### React Hooks
 
@@ -181,3 +181,32 @@ URL Params Vs Search Params:
 
 - Custom hooks are functions that allow you to reuse stateful logic across multiple components.
 - They are a way to extract and share logic that is not specific to a single component.
+
+Pagination:
+
+PerPage = 10
+
+PageNumber = 2
+
+(PageNumber - 1) _ PerPage + 1 = 11 (Starting Index)
+PageNumber _ PerPage = 2 \* 10 = 20 (Ending Index)
+
+[
+{
+id: 1,
+name: "John Doe",
+age: 30,
+},
+{
+id: 2,
+name: "Jane Doe",
+age: 25,
+},
+// ...
+]
+
+Redux:
+
+- Redux is a state management library for JavaScript applications.
+- It is used to manage the state of an application in a predictable way.
+- Redux uses a centralized store to hold the state of the application, and allows components to access and update the state through actions and reducers.
