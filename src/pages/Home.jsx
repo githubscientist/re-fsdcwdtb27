@@ -1,25 +1,14 @@
-import { Link, useLoaderData } from "react-router";
-import { useAuth } from "../contexts/UserContext";
+import { useState } from "react";
 
 const Home = () => {
 
-    const { user, setUser } = useAuth();
-    const todos = useLoaderData();
+    const [count, setCount] = useState(0);
 
     return (
-        <div>
-            <p>{user.email ? user.email : 'Guest'} has logged in! <button onClick={user.email ? () => setUser({}) : () => setUser({ email: 'Alice@guvi.in' })}>{user.email ? 'logout' :
-                'login'}</button></p>
-            <h1>Todos</h1>
-            <p>Click on a todo to view detailed info of it!</p>
-            <ul>
-                {todos.map(todo => (
-                    <li key={todo.id}>
-                        <Link to={"/todo" + "/" + todo.id}>{todo.content}</Link>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <>
+            <h1>Counter: {count}</h1>
+            <button onClick={() => setCount(count + 1)}>Increase</button>
+        </>
     )
 }
 
