@@ -1,22 +1,16 @@
-import { useReducer } from "react";
-
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'INCR':
-            return state + 1;
-        default:
-            return state;
-    }
-}
+import { useDispatch, useSelector } from "react-redux";
+import { increment } from "../redux/features/counterSlice";
 
 const Home = () => {
+    const count = useSelector((state) => state.counter.count);
 
-    const [count, dispatch] = useReducer(reducer, 0);
+    const dispatch = useDispatch();
 
+    console.log(count);
     return (
         <>
             <h1>Counter: {count}</h1>
-            <button onClick={() => dispatch({ type: 'INCR' })}>Increase</button>
+            <button onClick={() => dispatch(increment())}>Increase</button>
         </>
     )
 }

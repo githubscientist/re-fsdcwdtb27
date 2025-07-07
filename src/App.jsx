@@ -4,6 +4,8 @@ import todosLoader from "./loaders/unit/todosLoader";
 import Todo from "./components/Todo";
 import todoLoader from "./loaders/unit/todoLoader";
 import UserContext from "./contexts/UserContext";
+import { Provider } from "react-redux";
+import store from "./redux/app/store";
 
 const routes = [
     {
@@ -35,14 +37,16 @@ const router = createBrowserRouter(routes, {
 const App = () => {
 
     return (
-        <UserContext>
-            <RouterProvider
-                router={router}
-                future={{
-                    v7_startTransition: true,
-                }}
-            />
-        </UserContext>
+        <Provider store={store}>
+            <UserContext>
+                <RouterProvider
+                    router={router}
+                    future={{
+                        v7_startTransition: true,
+                    }}
+                />
+            </UserContext>
+        </Provider>
     )
 }
 
