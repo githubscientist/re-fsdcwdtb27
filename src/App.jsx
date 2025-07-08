@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
+import Header from "./components/Header";
+import Buttons from "./components/Buttons";
+import History from "./components/History";
 
 /*
     Props Drilling - Sending data from parent to deeply nested child components
 */
+
+export const AppContext = createContext();
+
 const App = () => {
 
     const [likes, setLikes] = useState(0);
@@ -20,11 +26,13 @@ const App = () => {
     }
 
     return (
-        <div>
-            <button onClick={handleLike}>Like {likes}</button> <button onClick={handleDislike}>DisLike {dislikes}</button>
-            <h3>History of Clicks</h3>
-            <p>{likesHistory.join(', ')}</p>
-        </div>
+        <AppContext.Provider value={{ likes, dislikes, likesHistory, handleLike, handleDislike }}>
+            <div>
+                <Header />
+                <Buttons />
+                <History />
+            </div>
+        </AppContext.Provider>
     )
 }
 
@@ -39,6 +47,7 @@ export default App;
     setLikesHistory([...likesHistory, 'L'])
 
     App
-        - LikeComponent
-        - 
+        - Header (h1 and h2)
+        - Buttons (Like and Dislike)
+        - History (h3 and p) - HistoryHeader & HistoryList
 */
