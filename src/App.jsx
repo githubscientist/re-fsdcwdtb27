@@ -1,53 +1,44 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
-import Home from "./pages/Home";
-import todosLoader from "./loaders/unit/todosLoader";
-import Todo from "./components/Todo";
-import todoLoader from "./loaders/unit/todoLoader";
-import UserContext from "./contexts/UserContext";
-import { Provider } from "react-redux";
-import store from "./redux/app/store";
+import { useState } from "react";
 
-const routes = [
-    {
-        path: "/",
-        element: <Home />,
-        loader: todosLoader,
-        hydrateFallbackElement: <div>Loading...</div>,
-    },
-    {
-        path: "/todo/:id",
-        element: <Todo />,
-        loader: todoLoader,
-        hydrateFallbackElement: <div>Loading Todo...</div>,
-    }
-];
-
-
-// create a router object
-const router = createBrowserRouter(routes, {
-    future: {
-        v7_relativeSplatPath: true,
-        v7_fetcherPersist: true,
-        v7_normalizeFormMethod: true,
-        v7_partialHydration: true,
-        v7_skipActionErrorRevalidation: true,
-    },
-});
-
+/*
+    Props Drilling - Sending data from parent to deeply nested child components
+*/
 const App = () => {
 
+    const [likes, setLikes] = useState(0);
+    const [dislikes, setDislikes] = useState(0);
+    const [likesHistory, setLikesHistory] = useState([]);
+
+    const handleLike = () => {
+        setLikes(likes + 1);
+        setLikesHistory([...likesHistory, 'L']);
+    };
+
+    const handleDislike = () => {
+        setDislikes(dislikes + 1);
+        setLikesHistory([...likesHistory, 'D']);
+    }
+
     return (
-        <Provider store={store}>
-            <UserContext>
-                <RouterProvider
-                    router={router}
-                    future={{
-                        v7_startTransition: true,
-                    }}
-                />
-            </UserContext>
-        </Provider>
+        <div>
+            <button onClick={handleLike}>Like {likes}</button> <button onClick={handleDislike}>DisLike {dislikes}</button>
+            <h3>History of Clicks</h3>
+            <p>{likesHistory.join(', ')}</p>
+        </div>
     )
 }
 
 export default App;
+
+/*
+    Like : L
+    Dislike: D
+
+    likesHistory = ['L', 'L', 'D']
+
+    setLikesHistory([...likesHistory, 'L'])
+
+    App
+        - LikeComponent
+        - 
+*/
