@@ -1,8 +1,8 @@
-import { useOutletContext } from "react-router";
+import { useAppData } from "../contexts/AppContextComponent";
 
 const Buttons = () => {
 
-    const { likes, dislikes, handleLike, handleDislike } = useOutletContext();
+    const { likes, dislikes, handleLike, handleDislike } = useAppData();
 
     return (
         <>

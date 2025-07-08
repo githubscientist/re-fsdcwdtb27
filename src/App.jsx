@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Buttons from "./components/Buttons";
+import AppContextComponent from "./contexts/AppContextComponent";
 
 const routes = [
     {
@@ -35,7 +36,9 @@ const router = createBrowserRouter(routes, {
 
 const App = () => {
     return (
-        <RouterProvider router={router} />
+        <AppContextComponent>
+            <RouterProvider router={router} />
+        </AppContextComponent>
     )
 }
 

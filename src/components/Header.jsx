@@ -1,21 +1,15 @@
-import { Outlet, useOutletContext } from "react-router";
+import { Outlet } from "react-router";
+import { useAppData } from "../contexts/AppContextComponent";
 
 const Header = () => {
 
-    const { likes, dislikes, handleLike, handleDislike } = useOutletContext();
+    const { likes, dislikes } = useAppData();
 
     return (
         <>
             <h1>Like and Dislike Counter</h1>
             <h2>Total Count: {likes + dislikes}</h2>
-            <Outlet
-                context={{
-                    likes,
-                    dislikes,
-                    handleLike,
-                    handleDislike,
-                }}
-            />
+            <Outlet />
         </>
     )
 }
