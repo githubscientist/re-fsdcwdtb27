@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { AppContext } from "../App";
+import { useAppData } from "../contexts/AppContextComponent";
 
 const Header = () => {
 
-    const { likes, dislikes } = useContext(AppContext);
+    const { likes, dislikes } = useAppData();
 
     return (
         <>

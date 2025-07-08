@@ -1,38 +1,21 @@
-import { createContext, useState } from "react";
 import Header from "./components/Header";
 import Buttons from "./components/Buttons";
 import History from "./components/History";
+import AppContextComponent from "./contexts/AppContextComponent";
 
 /*
-    Props Drilling - Sending data from parent to deeply nested child components
+    Custom Hooks - Are the hooks that we create to encapsulate logic and state management or to provide reusable functionality across components.
 */
 
-export const AppContext = createContext();
-
 const App = () => {
-
-    const [likes, setLikes] = useState(0);
-    const [dislikes, setDislikes] = useState(0);
-    const [likesHistory, setLikesHistory] = useState([]);
-
-    const handleLike = () => {
-        setLikes(likes + 1);
-        setLikesHistory([...likesHistory, 'L']);
-    };
-
-    const handleDislike = () => {
-        setDislikes(dislikes + 1);
-        setLikesHistory([...likesHistory, 'D']);
-    }
-
     return (
-        <AppContext.Provider value={{ likes, dislikes, likesHistory, handleLike, handleDislike }}>
+        <AppContextComponent>
             <div>
                 <Header />
                 <Buttons />
                 <History />
             </div>
-        </AppContext.Provider>
+        </AppContextComponent>
     )
 }
 
