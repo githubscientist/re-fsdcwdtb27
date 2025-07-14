@@ -1,87 +1,78 @@
-import axios from "axios";
-import html2pdf from "html2pdf.js";
-import { useEffect, useState } from "react";
+import { closestCenter, DndContext, KeyboardSensor, PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
+import { arrayMove, SortableContext, sortableKeyboardCoordinates, useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import { useState } from "react";
+
+function SortableItem({ id, children }) {
+    const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
+
+    const style = {
+        transform: CSS.Transform.toString(transform),
+        transition,
+    };
+
+    return (
+        <div ref={setNodeRef} {...attributes} {...listeners} style={style}>
+            {children}
+        </div>
+    )
+}
 
 const App = () => {
 
-    const [movies, setMovies] = useState([]);
-    const [year, setYear] = useState("all");
+    const [items, setItems] = useState([
+        { id: 1, content: 'Apple' },
+        { id: 2, content: 'Banana' },
+        { id: 3, content: 'Cherry' },
+        { id: 4, content: 'Orange' },
+        { id: 5, content: 'Grapes' }
+    ]);
 
-    useEffect(() => {
-        axios.get('http://localhost:5174/movies')
-            .then(response => setMovies(response.data));
-    }, []);
+    // setup sensors to handle different input methods like mouse, touch, etc.
+    const sensors = useSensors(
+        useSensor(PointerSensor),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates
+        })
+    );
 
-    const handleUpdateRating = () => {
-        axios.put('http://localhost:5174/movies/1', {
-            ...movies[0],
-            rating: 10
-        });
-    }
+    const handleDragEnd = (event) => {
+        const { active, over } = event;
 
-    const handleFavourite = (movie) => {
-        const favouriteMovies = JSON.parse(localStorage.getItem("favouriteMovies")) || [];
-        if (!favouriteMovies.includes(JSON.stringify(movie))) {
-            favouriteMovies.push(JSON.stringify(movie));
-        }
+        if (active.id !== over.id) {
+            setItems((items) => {
+                const oldIndex = items.findIndex(item => item.id === active.id);
+                const newIndex = items.findIndex(item => item.id === over.id);
 
-        localStorage.setItem("favouriteMovies", JSON.stringify(favouriteMovies));
-        alert("Movie marked as favourite!");
-    }
-
-    const handleDownload = () => {
-        const pdfContent = document.getElementById("content");
-        html2pdf()
-            .from(pdfContent)
-            .set({
-                margin: 1,
-                filename: 'movies.pdf',
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                return arrayMove(items, oldIndex, newIndex)
             })
-            .save();
+        }
     }
-
 
     return (
-        <div id="content">
-            <button onClick={handleDownload}>Download as PDF</button>
-            <br /><br />
-            {
-                movies[0] && (
-                    <img src={`/${movies[0].img}`} width={"250px"}></img>
-                )
-            }
+        <div>
+            <h1>Simple Drag and Drop Demo</h1>
+            <p>
+                Drag and drop the items below to reorder them.
+            </p>
 
-            <button onClick={handleUpdateRating}>Update Rating</button>
-
-            <select onChange={(e) => setYear(e.target.value)} value={year}>
-                <option value="all">all</option>
-                <option value="2010">2010</option>
-                <option value="1994">1994</option>
-                <option value="1972">1972</option>
-            </select>
-
-
-
-            <div>
-                {
-                    movies
-                        .filter(movie => movie.year == year || year === "all")
-                        .map(movie => {
-                            return (
-                                <div key={movie.id}>
-                                    <h2>{movie.title}</h2>
-                                    <p>Director: {movie.director}</p>
-                                    <p>Year: {movie.year}</p>
-                                    <p>Genre: {movie.genre}</p>
-                                    <p>Rating: {movie.rating}</p>
-                                    <button onClick={() => handleFavourite(movie)}>Mark as Favourite</button>
-                                </div>
-                            )
-                        })
-                }
-            </div>
+            <DndContext
+                sensors={sensors}
+                collisionDetection={closestCenter}
+                onDragEnd={handleDragEnd}
+            >
+                <SortableContext items={items.map(item => item.id)}>
+                    <div>
+                        {
+                            items.map(item => (
+                                <SortableItem id={item.id} key={item.id}>
+                                    {item.content}
+                                </SortableItem>
+                            ))
+                        }
+                    </div>
+                </SortableContext>
+            </DndContext>
         </div>
     )
 }
